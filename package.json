@@ -1,0 +1,29 @@
+{
+  "name": "overwatch-profile-parser",
+  "version": "0.0.1",
+  "description": "Overwatch battle.net profile parser gets public information for a given battle tag",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/vrtxf/overwatch-profile-parser.git"
+  },
+  "keywords": [
+    "overwatch",
+    "battle.net",
+    "profile",
+    "parser"
+  ],
+  "author": "TED Vortex <ted.vortex@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vrtxf/overwatch-profile-parser/issues"
+  },
+  "homepage": "https://github.com/vrtxf/overwatch-profile-parser#readme",
+  "dependencies": {
+    "nightmare": "^2.5.1",
+    "superagent": "^2.0.0"
+  }
+}
