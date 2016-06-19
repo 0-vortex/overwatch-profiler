@@ -27,6 +27,7 @@
   "homepage": "https://github.com/vrtxf/overwatch-profile-parser#readme",
   "dependencies": {
     "commander": "^2.9.0",
+    "lodash": "^4.13.1",
     "nightmare": "^2.5.1",
     "superagent": "^2.0.0"
   }

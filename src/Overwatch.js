@@ -1,3 +1,6 @@
+var request = require('superagent'),
+    _ = require('lodash');
+
 class Overwatch {
     constructor() {
         this._baseUri = 'https://playoverwatch.com/en-us';
@@ -24,8 +27,36 @@ class Overwatch {
         return this.baseSearchUri + '/' + this.normalizeTag(tag);
     }
 
-    getProfileLink(tag) {
-        return this.baseUri + this.normalizeTag(tag);
+    getSearchResults(tag, callback) {
+        request
+            .get(this.getSearchLink(tag))
+            .set('Accept', 'application/json')
+            .end(function (error, data) {
+                if (error || !data.ok) {
+                    return false;
+                } else {
+                    callback(data.body);
+                }
+            });
+    }
+
+    refineSearchResults(result, platform, region) {
+        result = _.find(result, function (item) {
+            var regexp = '\\/career' + '\\/' + (platform ? platform : '[^\\/]+') + '\\/' + (region ? region : '.*');
+
+            return item.careerLink.match(new RegExp(regexp));
+        });
+
+        if (undefined !== result) {
+            return {
+                "name": result.platformDisplayName,
+                "level": result.level,
+                "avatar": result.portrait,
+                "link": this.baseUri + result.careerLink
+            }
+        }
+
+        return result;
     }
 }
 
