@@ -2,7 +2,10 @@
   "name": "overwatch-profile-parser",
   "version": "0.0.1",
   "description": "Overwatch battle.net profile parser gets public information for a given battle tag",
-  "main": "op.js",
+  "main": "",
+  "bin": {
+    "op": "./op.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

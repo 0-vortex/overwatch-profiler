@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
 var program = require('commander'),
-    request = require('superagent');
+    request = require('superagent'),
+    overwatch = new (require('./src/Overwatch'));
 
 program
     .description('Search for a BattleTag™ and return profile link, platform display name, full level and avatar image')
@@ -37,17 +38,15 @@ if (typeof battleTag === 'undefined') {
     process.exit(1);
 }
 
-if (!battleTag.match(/^[a-zA-Z0-9]{3,12}\#[0-9]+$/)) {
+if (!overwatch.checkBattleTag(battleTag)) {
     console.error('Incorrect BattleTag™ format provided !');
     process.exit(1);
 }
 
-var url = 'https://playoverwatch.com/en-us/search/account-by-name/' + battleTag.replace("#", '-');
-
 request
-    .get(url)
+    .get(overwatch.getSearchLink(battleTag))
     .set('Accept', 'application/json')
-    .end(function(err, res){
+    .end(function (err, res) {
         if (err || !res.ok) {
             console.log(err);
         } else {
