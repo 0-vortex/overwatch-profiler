@@ -57,13 +57,12 @@ gulp.task('coveralls', ['test'], function () {
 });
 
 gulp.task('codeclimate', ['test'], function () {
-    if (!process.env.CODECLIMATE_REPO_TOKEN) {
+    if (!process.env.CI) {
         return;
     }
 
     return gulp.src(path.join(__dirname, 'coverage/lcov.info'))
         .pipe(codeclimate({
-            token: process.env.CODECLIMATE_REPO_TOKEN,
             verbose: true
         }));
 });
