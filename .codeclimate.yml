@@ -11,3 +11,12 @@ engines:
   eslint:
     enabled: true
     channel: "eslint-2"
+ratings:
+  paths:
+  - cli/**
+  - lib/**
+  - "**.js"
+exclude_paths:
+- coverage/**/*
+- build/**/*
+- "**/node_modules/**/*"
