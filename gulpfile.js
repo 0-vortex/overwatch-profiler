@@ -53,9 +53,19 @@ gulp.task('coveralls', ['test'], function () {
     }
 
     return gulp.src(path.join(__dirname, 'coverage/lcov.info'))
-        .pipe(coveralls())
-        .pipe(codeclimate());
+        .pipe(coveralls());
+});
+
+gulp.task('codeclimate', ['test'], function () {
+    if (!process.env.CODECLIMATE_REPO_TOKEN) {
+        return;
+    }
+
+    return gulp.src(path.join(__dirname, 'coverage/lcov.info'))
+        .pipe(codeclimate({
+            token: process.env.CODECLIMATE_REPO_TOKEN
+        }));
 });
 
 gulp.task('prepublish', ['nsp']);
-gulp.task('default', ['static', 'test', 'coveralls']);
+gulp.task('default', ['static', 'test', 'coveralls', 'codeclimate']);
