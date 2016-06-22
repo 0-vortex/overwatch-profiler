@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
 var program = require('commander'),
-    overwatch = new (require('../lib/Overwatch'));
+    overwatch = new (require('../lib/Overwatch')),
+    battleTag;
 
 program
     .description('Search for a BattleTag™ and return profile link, platform display name, full level and avatar image in human readable output')
