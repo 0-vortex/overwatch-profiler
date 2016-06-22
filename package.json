@@ -1,6 +1,6 @@
 {
   "name": "overwatch-profiler",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Overwatch battle.net profile parser gets public information for a given battle tag",
   "main": "",
   "bin": {
