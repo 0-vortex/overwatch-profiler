@@ -57,6 +57,7 @@ gulp.task('coveralls', ['test'], function () {
 });
 
 gulp.task('codeclimate', ['test'], function () {
+    console.log(process.env.CODECLIMATE_REPO_TOKEN);
     if (!process.env.CI) {
         return;
     }
