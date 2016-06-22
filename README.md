@@ -23,3 +23,7 @@ To search for a BattleTag™:
 ```
 op search
 ```
+
+## License
+
+BSD-2-Clause © TED Vortex
