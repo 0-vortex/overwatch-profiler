@@ -63,7 +63,8 @@ gulp.task('codeclimate', ['test'], function () {
 
     return gulp.src(path.join(__dirname, 'coverage/lcov.info'))
         .pipe(codeclimate({
-            token: process.env.CODECLIMATE_REPO_TOKEN
+            token: process.env.CODECLIMATE_REPO_TOKEN,
+            verbose: true
         }));
 });
 

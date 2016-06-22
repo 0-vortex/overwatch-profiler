@@ -6,3 +6,8 @@ engines:
       languages:
       - ruby
       - javascript
+  nodesecurity:
+    enabled: true
+  eslint:
+    enabled: true
+    channel: "eslint-2"
