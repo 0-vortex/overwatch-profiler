@@ -1,4 +1,4 @@
-# overwatch-profile-parser
+# op [![npm version](https://badge.fury.io/js/overwatch-profiler.svg)](https://badge.fury.io/js/overwatch-profiler) ![](https://img.shields.io/badge/one-vortex-blue.svg)
 
 Overwatch battle.net profile parser gets public information for a given battle tag
 
