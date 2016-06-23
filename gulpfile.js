@@ -10,8 +10,8 @@ var plumber = require('gulp-plumber');
 var coveralls = require('gulp-coveralls');
 var codeclimate = require('gulp-codeclimate-reporter');
 
-gulp.task('static', function () {
-    return gulp.src('**/*.js')
+gulp.task('lint', function () {
+    return gulp.src(['**/*.js', '!node_modules/**'])
         .pipe(excludeGitignore())
         .pipe(eslint())
         .pipe(eslint.format())
@@ -48,7 +48,7 @@ gulp.task('test', ['pre-test'], function (cb) {
 });
 
 gulp.task('coveralls', ['test'], function () {
-    if (!process.env.CI) {
+    if (!process.env.COVERAGE_REPORT) {
         return;
     }
 
@@ -57,7 +57,7 @@ gulp.task('coveralls', ['test'], function () {
 });
 
 gulp.task('codeclimate', ['test'], function () {
-    if (!process.env.CI) {
+    if (!process.env.COVERAGE_REPORT) {
         return;
     }
 
@@ -67,5 +67,9 @@ gulp.task('codeclimate', ['test'], function () {
         }));
 });
 
+console.log(process.env.TRAVIS_NODE_VERSION);
+console.log(process.env.COVERAGE_REPORT);
+
+gulp.task('stats', ['coveralls', 'codeclimate']);
 gulp.task('prepublish', ['nsp']);
-gulp.task('default', ['static', 'test', 'coveralls', 'codeclimate']);
+gulp.task('default', ['prepublish', 'lint', 'test']);
