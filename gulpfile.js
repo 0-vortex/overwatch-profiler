@@ -70,6 +70,6 @@ gulp.task('codeclimate', ['test'], function () {
 console.log(process.env.TRAVIS_NODE_VERSION);
 console.log(process.env.COVERAGE_REPORT);
 
-gulp.task('coverage', ['coveralls', 'codeclimate']);
+gulp.task('stats', ['coveralls', 'codeclimate']);
 gulp.task('prepublish', ['nsp']);
-gulp.task('default', ['lint', 'test', 'coverage']);
+gulp.task('default', ['prepublish', 'lint', 'test']);
