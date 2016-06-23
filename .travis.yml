@@ -1,12 +1,11 @@
 sudo: false
 language: node_js
-
 node_js:
-  - v0.10
-  - v0.12
-  - v4
-  - v5
-  - v6
+  - "0.12"
+  - "4"
+  - "5"
+  - "6"
 
 before_script:
-  - sh -c "if [[ $TRAVIS_NODE_VERSION = '6' ]]; then $COVERAGE_REPORT='1'; else $COVERAGE_REPORT='0'; fi"
+- test $TRAVIS_NODE_VERSION = '6' \
+  && export COVERAGE_REPORT=true
