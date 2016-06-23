@@ -9,4 +9,4 @@ node_js:
   - v6
 
 before_script:
-  - if [[ $TRAVIS_NODE_VERSION = '6' ]]; then $COVERAGE_REPORT="1"; else $COVERAGE_REPORT="0";
+  - if [[ $TRAVIS_NODE_VERSION = '6' ]]; then $COVERAGE_REPORT="1"; else $COVERAGE_REPORT="0"; fi
