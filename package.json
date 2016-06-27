@@ -1,13 +1,13 @@
 {
   "name": "overwatch-profiler",
-  "version": "0.3.14",
+  "version": "0.3.15",
   "description": "Overwatch battle.net profile parser gets public information for a given battle tag",
   "main": "",
   "bin": {
     "op": "cli/op.js"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=0.12.0"
   },
   "scripts": {
     "test": "gulp",
